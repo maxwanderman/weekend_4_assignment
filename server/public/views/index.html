@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="ticketApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Ticket System</title>
+    <script src="/vendor/angular/angular.min.js" type="text/javascript"></script>
+    <script src="/assets/scripts/client.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/vendor/bootstrap-3.3.6-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body ng-controller ="TicketController as tick">
+    <h1>Ticket System</h1>
+    <div>
+      {{system.name}}
+    </div>
+  <div>
+    <form>
+      Name: <input type="text" ng-model="tick.system.name" /><br />
+      Type: <input type="text" ng-model="tick.system.type" /><br />
+      Priority: <input type="text" ng-model="tick.system.priority" /><br />
+      Description: <input type="text" ng-model="tick.system.description" /><br />
+      Assignee: <input type="text" ng-model="tick.system.assignee" /><br />
+      Reporter: <input type="text" ng-model="tick.system.reporter" /><br />
+      <input type="submit" ng-click="tick.add()" value="Save" />
+    </form>
+  </div>
+    <div class="container">
+      <div class="well col-md-3 ng-scope" ng-repeat= "syst in tick.systems">
+        Name: <p>{{syst.name}}</p>
+        Type: <p>{{syst.type}}</p>
+        Priority: <p>{{syst.priority}}</p>
+        Description: <p>{{syst.description}}</p>
+        Assignee: <p>{{syst.assignee}}</p>
+        Reporter: <p>{{syst.reporter}}</p>
+        Date Created: <p>{{syst.dateCreated}}</p>
+        Date Updated: <p>{{syst.dateUpdated}}</p>
+      </div>
+    </div>
+
+  </body>
+</html>
